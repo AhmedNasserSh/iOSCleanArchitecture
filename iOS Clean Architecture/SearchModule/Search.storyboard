@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hjP-SK-STF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="ZW1-7C-cLi">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="hjP-SK-STF" customClass="SearchViewController" customModule="iOS_Clean_Architecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SeC-ph-3g9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRY-bB-PWh">
+                                <rect key="frame" x="10" y="54" width="394" height="34"/>
+                                <viewLayoutGuide key="safeArea" id="eGP-Xx-NDN"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hjP-SK-STF" id="6PJ-2D-bfF"/>
+                                </connections>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vCH-8m-GI6">
+                                <rect key="frame" x="0.0" y="98" width="414" height="756"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZiU-5g-wLA">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="cGb-XA-q1A" customClass="ImageCollectionViewCell" customModule="iOS_Clean_Architecture" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wr1-Dw-CS6">
+                                                    <rect key="frame" x="0.0" y="-1" width="50" height="50.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Wr1-Dw-CS6" firstAttribute="leading" secondItem="cGb-XA-q1A" secondAttribute="leading" id="G7o-3B-9ue"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wr1-Dw-CS6" secondAttribute="trailing" id="nQW-y6-X8t"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wr1-Dw-CS6" secondAttribute="bottom" id="rpj-p5-PaU"/>
+                                            <constraint firstItem="Wr1-Dw-CS6" firstAttribute="top" secondItem="cGb-XA-q1A" secondAttribute="top" id="w7O-wO-7B8"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="searchImageView" destination="Wr1-Dw-CS6" id="YhW-SP-VyK"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="hjP-SK-STF" id="6hc-LP-Is7"/>
+                                    <outlet property="delegate" destination="hjP-SK-STF" id="CUG-mQ-jYw"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wRY-bB-PWh" firstAttribute="top" secondItem="4Qd-vw-549" secondAttribute="top" constant="10" id="1B8-5Q-7gO"/>
+                            <constraint firstItem="4Qd-vw-549" firstAttribute="bottom" secondItem="vCH-8m-GI6" secondAttribute="bottom" constant="8" id="7du-6N-YLf"/>
+                            <constraint firstItem="wRY-bB-PWh" firstAttribute="leading" secondItem="SeC-ph-3g9" secondAttribute="leading" constant="10" id="7mh-0X-Xz3"/>
+                            <constraint firstAttribute="trailing" secondItem="wRY-bB-PWh" secondAttribute="trailing" constant="10" id="dgq-BN-u92"/>
+                            <constraint firstItem="vCH-8m-GI6" firstAttribute="top" secondItem="wRY-bB-PWh" secondAttribute="bottom" constant="10" id="gfi-jV-Ei2"/>
+                            <constraint firstItem="4Qd-vw-549" firstAttribute="trailing" secondItem="vCH-8m-GI6" secondAttribute="trailing" id="kYg-KG-UcN"/>
+                            <constraint firstItem="vCH-8m-GI6" firstAttribute="leading" secondItem="4Qd-vw-549" secondAttribute="leading" id="urb-6n-oRA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Qd-vw-549"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="vCH-8m-GI6" id="O7v-yS-fzy"/>
+                        <outlet property="searchTextField" destination="wRY-bB-PWh" id="MGX-AD-8Qr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPR-W3-fyV" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="62.518740629685162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="trash" catalog="system" width="60" height="64"/>
+    </resources>
+</document>

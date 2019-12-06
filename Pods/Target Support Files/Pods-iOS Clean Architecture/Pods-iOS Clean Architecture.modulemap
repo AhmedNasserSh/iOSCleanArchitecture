@@ -1,0 +1,6 @@
+framework module Pods_iOS_Clean_Architecture {
+  umbrella header "Pods-iOS Clean Architecture-umbrella.h"
+
+  export *
+  module * { export * }
+}
