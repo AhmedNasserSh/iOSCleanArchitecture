@@ -22,10 +22,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let searchView = SearchBuilder.buildModule()
+        var searchView: SearchViewProtocol = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
+        SearchBuilder.buildModule(view: &searchView)
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.windowScene = windowScene
-        window!.rootViewController = searchView
+        window!.rootViewController = searchView as? UIViewController
         window!.makeKeyAndVisible()
               
     }

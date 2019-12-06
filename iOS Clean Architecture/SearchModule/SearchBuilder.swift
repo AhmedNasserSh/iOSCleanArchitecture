@@ -10,18 +10,16 @@ import Foundation
 import UIKit
 class SearchBuilder {
     
-    class func buildModule() -> SearchViewController  {
+    class func buildModule(view :inout SearchViewProtocol)   {
         //MARK: Initialise components.
         let presenter = SearchPresenter()
         let interactor = SearchInteractor(withApiWorker: SearchAPIWorker(query: "nature", page: 1))
         let wireframe = SearchWireFrame()
-        let searchView = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as! SearchViewController
 
         //MARK: link VIP components.
-        searchView.interactor = interactor
-        searchView.wireframe = wireframe
-        presenter.view = searchView
+        view.interactor = interactor
+        view.wireframe = wireframe
+        presenter.view = view
         interactor.presenter = presenter
-        return searchView
     }
 }
