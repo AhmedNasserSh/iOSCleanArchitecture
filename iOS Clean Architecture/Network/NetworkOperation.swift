@@ -9,16 +9,18 @@
 import Foundation
 import Hydra
 import ObjectMapper
+import Combine
 public protocol NetworkOperationBase: class{}
+
 protocol NetworkOperation :NetworkOperationBase {
     /// Request to execute
     var request: NetworkRequest? { get set}
-    
+    var isCancled : Bool? { get set}
     
     /// Execute request in passed dispatcher
     ///
     /// - Parameter dispatcher: dispatcher
     /// - Returns: a promise
-    func execute(in dispatcher: NetworkDispatcher) -> Promise<Mappable>
+    func execute(in dispatcher: NetworkDispatcher) -> Deferred<Future<Any,Error>>
     
 }
