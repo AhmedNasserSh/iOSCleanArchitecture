@@ -18,10 +18,12 @@ public class NetworkManger: NetworkDispatcher {
 
     private var environment: Environment
     private var session: URLSession
+    
     required public init(environment: Environment) {
         self.environment = environment
         self.session = URLSession(configuration: URLSessionConfiguration.default)
     }
+    
     public func execute(request: NetworkRequest) throws -> Promise<Response> {
         let rqe = try self.prepareURLRequest(for: request)
     
@@ -33,6 +35,7 @@ public class NetworkManger: NetworkDispatcher {
             d.resume()
         })
     }
+    
     private func prepareURLRequest(for request: NetworkRequest) throws -> URLRequest {
         // Compose the url
         let full_url = "\(environment.host)\(request.path)"

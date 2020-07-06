@@ -32,6 +32,7 @@ public enum Response {
             self =  .json(json ?? [:])
         }
     }
+    
     var response :Any? {
         switch self {
         case .json(let dic):

@@ -23,6 +23,7 @@ class SearchAPIWorker: NetworkOperation{
         self.page = page
         self.request = SearchRequest.search(query: query, page: page)
     }
+    
     func execute(in dispatcher: NetworkDispatcher) -> Deferred<Future<Any, Error>> {
         return  Deferred {
             return  Future<Any, Error> { (promise) in

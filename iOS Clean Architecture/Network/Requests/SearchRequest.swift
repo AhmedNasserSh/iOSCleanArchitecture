@@ -10,12 +10,15 @@ import Foundation
 public enum SearchRequest: NetworkRequest {
 
     case search(query:String, page:Int)
+    
     public var path: String {
       return ""
     }
+    
     public var method: HTTPMethod {
         return .get
     }
+    
     public var parameters: RequestParams {
         switch self {
         case .search(let query, let page):
@@ -24,6 +27,7 @@ public enum SearchRequest: NetworkRequest {
                           "per_page": 20, "page": page ,])
         }
     }
+    
     public var headers: [String: Any]? {
         switch self {
         default:
